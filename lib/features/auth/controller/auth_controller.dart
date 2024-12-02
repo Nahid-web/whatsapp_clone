@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/features/auth/repository/auth_repository.dart';
@@ -22,6 +24,16 @@ class AuthController {
       context: context,
       verificationId: verificationId,
       userOTP: userOTP,
+    );
+  }
+
+  void saveUserDataToFiebase(
+      BuildContext context, String name, File? profilePic) {
+    authRepository.saveUserDataToFirebase(
+      name: name,
+      profilePic: profilePic,
+      ref: ref,
+      context: context,
     );
   }
 }
