@@ -35,7 +35,7 @@ final commonFirebaseStoreageRepository = Provider(
   ),
 );
 
-class CommonFirebaseStorageRepository {
+  class CommonFirebaseStorageRepository {
   final Cloudinary cloudinary;
   CommonFirebaseStorageRepository({
     required this.cloudinary,
@@ -55,7 +55,6 @@ class CommonFirebaseStorageRepository {
       if (true) {
         final responseData = await response.stream.bytesToString();
         final jsonData = jsonDecode(responseData);
-        print('response is ${responseData}');
         String downloadUrl = jsonData['secure_url'];
         downloadUrl = downloadUrl;
       } else {}
