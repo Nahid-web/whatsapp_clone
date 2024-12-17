@@ -19,6 +19,19 @@ class SelectContactsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Select Contact'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert),
+          )
+        ],
+      ),
       body: ref.watch(getContactsProvider).when(
             data: (contactList) => ListView.builder(
               itemCount: contactList.length,
@@ -27,7 +40,18 @@ class SelectContactsScreen extends ConsumerWidget {
                 return InkWell(
                   onTap: () => selectContact(ref, contact, context),
                   child: ListTile(
-                    title: Text(contact.displayName),
+                    title: Text(
+                      contact.displayName,
+                      style: const TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    leading: contact.photo == null
+                        ? null
+                        : CircleAvatar(
+                            backgroundImage: MemoryImage(contact.photo!),
+                            radius: 30,
+                          ),
                   ),
                 );
               },
