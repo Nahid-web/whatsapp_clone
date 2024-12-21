@@ -27,7 +27,7 @@ class ChatContact {
   factory ChatContact.fromMap(Map<String, dynamic> map) {
     return ChatContact(
       name: map['name'] as String,
-      profilePic: map['profilePic'] as String,
+      profilePic: map['profilePic'] as String ,
       contactId: map['contactId'] as String,
       timeSent: DateTime.fromMillisecondsSinceEpoch(map['timeSent'] as int),
       lastMessage: map['lastMessage'] as String,

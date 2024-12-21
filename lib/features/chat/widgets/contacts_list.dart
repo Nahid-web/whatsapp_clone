@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:whatsapp_clone/colors.dart';
+import 'package:whatsapp_clone/common/widgets/error.dart';
+import 'package:whatsapp_clone/common/widgets/loader.dart';
 import 'package:whatsapp_clone/features/chat/controller/chat_controller.dart';
 import 'package:whatsapp_clone/features/chat/screens/mobile.chat_screen.dart';
 import 'package:whatsapp_clone/models/chat_contact.dart';
@@ -16,6 +18,13 @@ class ContactsList extends ConsumerWidget {
       child: StreamBuilder<List<ChatContact>>(
           stream: ref.watch(chatControllerProvider).chatContacts(),
           builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Loader();
+            }
+            if (!snapshot.hasData || snapshot.data == null) {
+              return const ErrorScreen(error: "null data");
+            }
+
             return ListView.builder(
               shrinkWrap: true,
               itemCount: snapshot.data!.length,
