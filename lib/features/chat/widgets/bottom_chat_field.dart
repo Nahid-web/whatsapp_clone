@@ -25,7 +25,17 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
             _messageController.text.trim(),
             widget.receiverUserId,
           );
+
+      setState(() {
+        _messageController.text = '';
+      });
     }
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
   }
 
   @override
