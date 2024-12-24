@@ -12,7 +12,7 @@ class SelectContactsScreen extends ConsumerWidget {
   void selectContact(
       WidgetRef ref, Contact selectedContact, BuildContext context) {
     ref
-        .read(selectContectControllerProvider)
+        .read(selectContactControllerProvider)
         .selectContact(selectedContact, context);
   }
 

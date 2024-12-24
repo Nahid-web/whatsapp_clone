@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:cloudinary_flutter/cloudinary_object.dart';
 import 'package:cloudinary_url_gen/cloudinary.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:whatsapp_clone/common/config/app_config.dart';
@@ -28,20 +29,20 @@ class CommonFirebaseStorageRepository {
   }
 } */
 
-final commonFirebaseStoreageRepository = Provider(
-  (ref) => CommonFirebaseStorageRepository(
+final commonCloudinryStorageRepository = Provider(
+  (ref) => CommonCloudinryStorageRepository(
     cloudinary:
         CloudinaryObject.fromCloudName(cloudName: CloudinaryConfig.cloudName),
   ),
 );
 
-  class CommonFirebaseStorageRepository {
+class CommonCloudinryStorageRepository {
   final Cloudinary cloudinary;
-  CommonFirebaseStorageRepository({
+  CommonCloudinryStorageRepository({
     required this.cloudinary,
   });
 
-  Future<String> storeFileToFirebase(String ref, File file) async {
+  Future<String> storeFileToCloundinry(String ref, File file) async {
     String downloadUrl = '';
     final url = Uri.parse(CloudinaryConfig.uploadImageUrl);
     final request = http.MultipartRequest('POST', url);
@@ -55,10 +56,14 @@ final commonFirebaseStoreageRepository = Provider(
       if (true) {
         final responseData = await response.stream.bytesToString();
         final jsonData = jsonDecode(responseData);
-        String downloadUrl = jsonData['secure_url'];
+        downloadUrl = jsonData['secure_url'];
         downloadUrl = downloadUrl;
-      } else {}
-    } catch (e) {}
+      } else {
+        debugPrint("something wrong to upload image");
+      }
+    } catch (e) {
+      debugPrint(e.toString());
+    }
 
     return downloadUrl;
   }

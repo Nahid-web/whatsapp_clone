@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/utils/utils.dart';
-import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:whatsapp_clone/features/chat/screens/mobile.chat_screen.dart';
+import 'package:whatsapp_clone/models/user_model.dart';
 
 final selectContactsRepositoryProvider = Provider(
   (ref) => SelectContactRepository(firestore: FirebaseFirestore.instance),
@@ -35,10 +35,12 @@ class SelectContactRepository {
       for (var document in userCollection.docs) {
         var userData = UserModel.fromMap(document.data());
 
-        String selectedPhoneNum = selectedContact.phones[0].number.replaceAll(
-          ' ',
-          '',
-        );
+        String selectedPhoneNum = selectedContact.phones[0].number
+            .replaceAll(
+              ' ',
+              '',
+            )
+            .replaceAll('-', '');
 
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
@@ -47,12 +49,11 @@ class SelectContactRepository {
             'uid': userData.uid,
           });
         }
-
-        if (!isFound) {
-          showSnackBar(
-              context: context,
-              content: 'This number does not exist on this app');
-        }
+      }
+      if (!isFound) {
+        showSnackBar(
+            context: context,
+            content: 'This number does not exist on this app');
       }
     } catch (e) {
       showSnackBar(context: context, content: e.toString());

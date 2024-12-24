@@ -32,7 +32,7 @@ class _UserInformationState extends ConsumerState<UserInformationScreen> {
     String name = nameController.text.trim();
 
     if (name.isNotEmpty) {
-      ref.read(authControllerProvider).saveUserDataToFiebase(
+      ref.read(authControllerProvider).saveUserDataToFirebase(
             context,
             name,
             image,
@@ -89,7 +89,7 @@ class _UserInformationState extends ConsumerState<UserInformationScreen> {
                   IconButton(
                     onPressed: storeUserData,
                     icon: const Icon(Icons.done),
-                  ),  
+                  ),
                 ],
               )
             ],

@@ -38,7 +38,7 @@ class AuthController {
     );
   }
 
-  void saveUserDataToFiebase(
+  void saveUserDataToFirebase(
       BuildContext context, String name, File? profilePic) {
     authRepository.saveUserDataToFirebase(
       name: name,
@@ -50,5 +50,9 @@ class AuthController {
 
   Stream<UserModel> userDataById(String userId) {
     return authRepository.userData(userId);
+  }
+
+  void setUserState(bool isOnline) {
+    authRepository.setUserState(isOnline);
   }
 }

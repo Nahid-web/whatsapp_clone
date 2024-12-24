@@ -8,10 +8,10 @@ final getContactsProvider = FutureProvider((ref) {
   return selectContactRepository.getContacts();
 });
 
-
-final selectContectControllerProvider = Provider((ref){
+final selectContactControllerProvider = Provider((ref) {
   final selectContactRepository = ref.watch(selectContactsRepositoryProvider);
-  return SelectContactController(ref: ref, selectContactRepository: selectContactRepository);
+  return SelectContactController(
+      ref: ref, selectContactRepository: selectContactRepository);
 });
 
 class SelectContactController {
