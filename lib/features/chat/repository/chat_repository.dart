@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 import 'package:whatsapp_clone/common/enums/message_enum.dart';
+import 'package:whatsapp_clone/common/repositories/common_storage_repository.dart';
 import 'package:whatsapp_clone/common/utils/utils.dart';
 import 'package:whatsapp_clone/models/chat_contact.dart';
 import 'package:whatsapp_clone/models/message.dart';
@@ -71,7 +74,7 @@ class ChatRepository {
     });
   }
 
-  void _saveDataToContactSubcollection(
+  void _saveDataToContactsSubcollection(
     UserModel senderUserData,
     UserModel? receiverUserData,
     String text,
@@ -174,7 +177,7 @@ class ChatRepository {
       UserModel? receiverUserData;
       var messageId = const Uuid().v1();
 
-      _saveDataToContactSubcollection(
+      _saveDataToContactsSubcollection(
         senderUser,
         receiverUserData,
         text,
@@ -189,6 +192,71 @@ class ChatRepository {
         messageId: messageId,
         userName: senderUser.name,
         messageType: MessageEnum.text,
+      );
+    } catch (e) {
+      showSnackBar(context: context, content: e.toString());
+    }
+  }
+
+  void sendFileMessage({
+    required BuildContext context,
+    required File file,
+    required String receiverUserId,
+    required UserModel senderUserData,
+    required Ref ref,
+    required MessageEnum messageEnum,
+  }) async {
+    try {
+      var timeSent = DateTime.now();
+      var messageId = const Uuid().v1();
+
+      String imageUrl = await ref
+          .read(commonCloudinryStorageRepository)
+          .storeFileToCloundinry(
+            'whatsAppClone/chat/${messageEnum.type}/${senderUserData.uid}/$receiverUserId',
+            messageId,
+            file,
+          );
+
+      UserModel? receiverUserData;
+
+      var userDataMap =
+          await firestore.collection('users').doc(receiverUserId).get();
+      receiverUserData = UserModel.fromMap(userDataMap.data()!);
+
+      String contactMsg;
+      switch (messageEnum) {
+        case MessageEnum.image:
+          contactMsg = '📷 Photo';
+          break;
+        case MessageEnum.video:
+          contactMsg = '📸 Video';
+          break;
+        case MessageEnum.audio:
+          contactMsg = '🎵 Audio';
+          break;
+        case MessageEnum.gif:
+          contactMsg = 'GIF';
+          break;
+        default:
+          contactMsg = 'GIF';
+      }
+
+      _saveDataToContactsSubcollection(
+        senderUserData,
+        receiverUserData,
+        contactMsg,
+        timeSent,
+        receiverUserId,
+      );
+
+      _saveMessageToMessageSubcollection(
+        receiverUserId: receiverUserId,
+        text: imageUrl,
+        timeSent: timeSent,
+        messageId: messageId,
+        userName: senderUserData.name,
+        messageType: messageEnum,
       );
     } catch (e) {
       showSnackBar(context: context, content: e.toString());

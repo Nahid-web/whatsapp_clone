@@ -5,5 +5,5 @@ class CloudinaryConfig {
 
   // cloudinary upload api
   static const uploadImageUrl =
-      'https://api.cloudinary.com/v1_1/$cloudName/image/upload';
+      'https://api.cloudinary.com/v1_1/$cloudName/upload';
 }

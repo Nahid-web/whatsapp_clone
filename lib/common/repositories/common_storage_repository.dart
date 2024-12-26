@@ -42,12 +42,17 @@ class CommonCloudinryStorageRepository {
     required this.cloudinary,
   });
 
-  Future<String> storeFileToCloundinry(String ref, File file) async {
+  Future<String> storeFileToCloundinry(
+      String ref, String fileName, File file) async {
     String downloadUrl = '';
     final url = Uri.parse(CloudinaryConfig.uploadImageUrl);
     final request = http.MultipartRequest('POST', url);
 
     request.fields['upload_preset'] = CloudinaryConfig.uploadPreset;
+    request.fields['folder'] = ref; // Specify the folder here
+
+    request.fields['public_id'] = fileName; // Set the custom file name
+
     request.files.add(await http.MultipartFile.fromPath('file', file.path));
 
     try {
@@ -59,10 +64,10 @@ class CommonCloudinryStorageRepository {
         downloadUrl = jsonData['secure_url'];
         downloadUrl = downloadUrl;
       } else {
-        debugPrint("something wrong to upload image");
+        debugPrint("Error uploading image: ${response.statusCode}");
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint("Exception during upload: $e");
     }
 
     return downloadUrl;

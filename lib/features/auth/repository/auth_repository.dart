@@ -90,7 +90,8 @@ class AuthRepository {
       if (profilePic != null) {
         photoUrl = await ref
             .read(commonCloudinryStorageRepository)
-            .storeFileToCloundinry('profilePic/$uid', profilePic);
+            .storeFileToCloundinry(
+                '/whatsAppClone/profilePic', uid, profilePic);
       }
 
       UserModel user = UserModel(
