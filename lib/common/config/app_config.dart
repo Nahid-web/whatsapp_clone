@@ -1,9 +1,6 @@
-class CloudinaryConfig {
-  // cloudinary enviroment variables
-  static const String cloudName = 'dtnrmaa4q';
-  static const String uploadPreset = 'khnxbzdz';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-  // cloudinary upload api
-  static const uploadImageUrl =
-      'https://api.cloudinary.com/v1_1/$cloudName/upload';
-}
+
+final String cloudName = dotenv.env['CLOUD_NAME'] ?? '';
+final String uploadPreset = dotenv.env['UPLOAD_PRESET'] ?? '';
+final String uploadUrl = dotenv.env['UPLOAD_URL'] ?? '';

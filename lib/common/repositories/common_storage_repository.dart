@@ -32,7 +32,7 @@ class CommonFirebaseStorageRepository {
 final commonCloudinryStorageRepository = Provider(
   (ref) => CommonCloudinryStorageRepository(
     cloudinary:
-        CloudinaryObject.fromCloudName(cloudName: CloudinaryConfig.cloudName),
+        CloudinaryObject.fromCloudName(cloudName: cloudName),
   ),
 );
 
@@ -45,10 +45,10 @@ class CommonCloudinryStorageRepository {
   Future<String> storeFileToCloundinry(
       String ref, String fileName, File file) async {
     String downloadUrl = '';
-    final url = Uri.parse(CloudinaryConfig.uploadImageUrl);
+    final url = Uri.parse(uploadUrl);
     final request = http.MultipartRequest('POST', url);
 
-    request.fields['upload_preset'] = CloudinaryConfig.uploadPreset;
+    request.fields['upload_preset'] = uploadPreset;
     request.fields['folder'] = ref; // Specify the folder here
 
     request.fields['public_id'] = fileName; // Set the custom file name
