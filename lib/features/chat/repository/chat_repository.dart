@@ -190,7 +190,8 @@ class ChatRepository {
       UserModel? receiverUserData;
       var messageId = const Uuid().v1();
 
-      var userDataMap = await firestore.collection('users').doc(receiverUserId).get();
+      var userDataMap =
+          await firestore.collection('users').doc(receiverUserId).get();
       receiverUserData = UserModel.fromMap(userDataMap.data()!);
 
       _saveDataToContactsSubcollection(
@@ -211,7 +212,6 @@ class ChatRepository {
         messageReply: messageReply,
         receiverUserName: receiverUserData.name,
         senderUsername: senderUser.name,
-
       );
     } catch (e) {
       showSnackBar(context: context, content: e.toString());
@@ -322,8 +322,34 @@ class ChatRepository {
         messageReply: messageReply,
         receiverUserName: receiverUserData.name,
         senderUsername: senderUser.name,
-      
       );
+    } catch (e) {
+      showSnackBar(context: context, content: e.toString());
+    }
+  }
+
+  void setChatMessageSeen(
+    BuildContext context,
+    String receiverUserId,
+    String messageId,
+  ) async {
+    try {
+      await firestore
+          .collection("users")
+          .doc(auth.currentUser!.uid)
+          .collection('chats')
+          .doc(receiverUserId)
+          .collection('messages')
+          .doc(messageId)
+          .update({'isSeen': true});
+      await firestore
+          .collection('users')
+          .doc(receiverUserId)
+          .collection('chats')
+          .doc(auth.currentUser!.uid)
+          .collection('messages')
+          .doc(messageId)
+          .update({'isSeen': true});
     } catch (e) {
       showSnackBar(context: context, content: e.toString());
     }
