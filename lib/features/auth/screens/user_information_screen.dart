@@ -51,7 +51,7 @@ class _UserInformationState extends ConsumerState<UserInformationScreen> {
               Stack(
                 children: [
                   image == null
-                      ? CircleAvatar(
+                      ? const CircleAvatar(
                           radius: 64,
                           child: Icon(
                             Icons.person,
@@ -69,7 +69,7 @@ class _UserInformationState extends ConsumerState<UserInformationScreen> {
                     left: 80,
                     child: IconButton(
                       onPressed: selectImage,
-                      icon: Icon(Icons.add_a_photo),
+                      icon: const Icon(Icons.add_a_photo),
                     ),
                   ),
                 ],

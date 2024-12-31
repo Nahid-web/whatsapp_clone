@@ -31,8 +31,7 @@ class CommonFirebaseStorageRepository {
 
 final commonCloudinryStorageRepository = Provider(
   (ref) => CommonCloudinryStorageRepository(
-    cloudinary:
-        CloudinaryObject.fromCloudName(cloudName: cloudName),
+    cloudinary: CloudinaryObject.fromCloudName(cloudName: cloudName),
   ),
 );
 
@@ -58,14 +57,11 @@ class CommonCloudinryStorageRepository {
     try {
       final response = await request.send();
 
-      if (true) {
-        final responseData = await response.stream.bytesToString();
-        final jsonData = jsonDecode(responseData);
-        downloadUrl = jsonData['secure_url'];
-        downloadUrl = downloadUrl;
-      } else {
-        debugPrint("Error uploading image: ${response.statusCode}");
-      }
+      final responseData = await response.stream.bytesToString();
+      final jsonData = jsonDecode(responseData);
+      downloadUrl = jsonData['secure_url'];
+      downloadUrl = downloadUrl;
+      debugPrint(downloadUrl);
     } catch (e) {
       debugPrint("Exception during upload: $e");
     }
