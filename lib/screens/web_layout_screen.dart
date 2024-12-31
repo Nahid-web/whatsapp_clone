@@ -6,7 +6,6 @@ import 'package:whatsapp_clone/widgets/web_chat_appbar.dart';
 import 'package:whatsapp_clone/widgets/web_profile_bar.dart';
 import 'package:whatsapp_clone/widgets/web_search_bar.dart';
 
-
 class WebLayoutScreen extends StatelessWidget {
   const WebLayoutScreen({Key? key}) : super(key: key);
 
@@ -45,7 +44,10 @@ class WebLayoutScreen extends StatelessWidget {
                 const ChatAppBar(),
                 const SizedBox(height: 20),
                 const Expanded(
-                  child: ChatList(receiverUserId: '',),
+                  child: ChatList(
+                    receiverUserId: '',
+                    isGroupChat: false,
+                  ),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.07,
