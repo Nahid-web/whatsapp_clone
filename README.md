@@ -54,20 +54,66 @@ A **Full-Stack Chatting App** built with **Flutter**, **Firebase**, **Cloudinary
 ---
 
 ## 📸 Screenshots
+### 1. landing Screen
+![landing_screen](https://github.com/user-attachments/assets/6175ce78-9b0e-496d-ae9c-0fa7bd231af0)
 
-### 1. Home Screen
+### 2. Validation Phone Number with Country Code
+![validation_with_countrycode](https://github.com/user-attachments/assets/c27cf361-95e0-4529-8146-4ef5b2a9b329)
 
-![Home Screen](assets/screenshots/home_screen.png)
+#![validation_with_countrycode](https://github.com/user-attachments/assets/47e67c7f-ef4f-409e-9850-2872a44be2bd)
+## 3. Select Country & Automaticly add code with Phn Number
+![select_your_countrycode](https://github.com/user-attachments/assets/9c9c1122-9f57-4ca4-b413-013d726f5f5f)
 
-### 2. Chat Screen
 
-![Chat Screen](assets/screenshots/chat_screen.png)
+### 4. Create Profile Screen
+![create_profile](https://github.com/user-attachments/assets/2e808407-69d9-424f-ae97-5fa511ef3f08)
 
-### 3. Status Feature
 
-![Status Feature](assets/screenshots/status_feature.png)
+### 4. Chat Screen
+![chat_screen](https://github.com/user-attachments/assets/31f85fdf-6c77-4157-b697-02eb410eb624)
 
-_Add your screenshots to the `assets/screenshots/` folder and replace the image paths above._
+### 5. Chat List
+![chat](https://github.com/user-attachments/assets/d6cb8224-d887-4722-a9b0-581b2b0ee4ea)
+![record_audio](https://github.com/user-attachments/assets/68045e4f-1866-438b-b2fd-814915f7d97f)
+
+
+### 6. Status Screen
+![status_screen](https://github.com/user-attachments/assets/ea3090fa-688c-436d-ac94-4815a4bc33f0)
+
+### 7. Status
+![status](https://github.com/user-attachments/assets/a2b6dc2c-2156-4995-8995-6d1c19396490)
+
+
+
+
+## 📸 Screenshots
+
+### 1. Landing Screen
+<img src="https://github.com/user-attachments/assets/6175ce78-9b0e-496d-ae9c-0fa7bd231af0" alt="landing_screen" width="400"/>
+
+### 2. Validation Phone Number with Country Code
+<img src="https://github.com/user-attachments/assets/c27cf361-95e0-4529-8146-4ef5b2a9b329" alt="validation_with_countrycode" width="400"/>
+
+### 3. Select Country & Automatically Add Code with Phone Number
+<img src="https://github.com/user-attachments/assets/9c9c1122-9f57-4ca4-b413-013d726f5f5f" alt="select_your_countrycode" width="400"/>
+
+### 4. Create Profile Screen
+<img src="https://github.com/user-attachments/assets/2e808407-69d9-424f-ae97-5fa511ef3f08" alt="create_profile" width="400"/>
+
+### 5. Chat Screen
+<img src="https://github.com/user-attachments/assets/31f85fdf-6c77-4157-b697-02eb410eb624" alt="chat_screen" width="400"/>
+
+### 6. Chat List
+<img src="https://github.com/user-attachments/assets/d6cb8224-d887-4722-a9b0-581b2b0ee4ea" alt="chat" width="400"/>
+<img src="https://github.com/user-attachments/assets/68045e4f-1866-438b-b2fd-814915f7d97f" alt="record_audio" width="400"/>
+
+### 7. Status Screen
+<img src="https://github.com/user-attachments/assets/ea3090fa-688c-436d-ac94-4815a4bc33f0" alt="status_screen" width="400"/>
+
+### 8. Status
+<img src="https://github.com/user-attachments/assets/a2b6dc2c-2156-4995-8995-6d1c19396490" alt="status" width="400"/>
+
+
 
 ---
 
