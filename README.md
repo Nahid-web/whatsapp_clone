@@ -85,6 +85,8 @@ A **Full-Stack Chatting App** built with **Flutter**, **Firebase**, **Cloudinary
 <div align="left">
   <img src="https://github.com/user-attachments/assets/d6cb8224-d887-4722-a9b0-581b2b0ee4ea" alt="chat" width="30%" />
   <img src="https://github.com/user-attachments/assets/68045e4f-1866-438b-b2fd-814915f7d97f" alt="record_audio" width="30%" />
+  <img src= "https://github.com/user-attachments/assets/0e7df6b3-c69d-4e07-ac02-b0e28ef04b5e" alt="sent_video" width=30%" />
+
 </div>
 
 ### 6. Status Screen
