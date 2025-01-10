@@ -147,12 +147,13 @@ class StatusRepository {
                     '',
                   ),
             )
-            .where(
-              'createdAt',
-              isGreaterThan: DateTime.now()
-                  .subtract(const Duration(hours: 24))
-                  .millisecondsSinceEpoch,
-            )
+            // .
+            // where(
+            //   'createdAt',
+            //   isGreaterThan: DateTime.now()
+            //       .subtract(const Duration(hours: 24))
+            //       .millisecondsSinceEpoch,
+            // )
             .get();
 
         for (var tempData in statusesSnapshot.docs) {
