@@ -53,6 +53,19 @@ A **Full-Stack Chatting App** built with **Flutter**, **Firebase**, **Cloudinary
 
 ---
 
+## 🌟 Project Showcase
+
+This project, a fully-featured **WhatsApp Clone**, demonstrates various Flutter and Firebase functionalities, including authentication, real-time messaging, media sharing, and more.
+
+📄 **Detailed Project Description and Demo Video**:  
+I have shared a complete overview of this project, including a demo video, on LinkedIn.
+
+🔗 [View Project on LinkedIn](https://www.linkedin.com/posts/nahid-amin-283950220_flutter-firebase-mobileappdevelopment-activity-7283572071467565056-zH_l?utm_source=share&utm_medium=member_desktop)
+
+Feel free to connect and leave your feedback or questions in the LinkedIn post comments!
+
+---
+
 ## 📸 Screenshots
 
 ### 1. Landing Screen
@@ -102,20 +115,6 @@ A **Full-Stack Chatting App** built with **Flutter**, **Firebase**, **Cloudinary
 </p>
 
 ---
-
-## 🌟 Project Showcase  
-
-This project, a fully-featured **WhatsApp Clone**, demonstrates various Flutter and Firebase functionalities, including authentication, real-time messaging, media sharing, and more.  
-
-📄 **Detailed Project Description and Demo Video**:  
-I have shared a complete overview of this project, including a demo video, on LinkedIn.  
-
-🔗 [View Project on LinkedIn](https://www.linkedin.com/posts/nahid-amin-283950220_flutter-firebase-mobileappdevelopment-activity-7283572071467565056-zH_l?utm_source=share&utm_medium=member_desktop)  
-
-Feel free to connect and leave your feedback or questions in the LinkedIn post comments!  
-
----
-
 
 ## 📥 Installation
 
