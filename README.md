@@ -64,6 +64,14 @@ I have shared a complete overview of this project, including a demo video, on Li
 
 Feel free to connect and leave your feedback or questions in the LinkedIn post comments!
 
+## 📥 Download APK  
+You can download and test the app from the link below:  
+
+🔗 **[Download APK from Google Drive](https://drive.google.com/file/d/1J3MNbMdf4av03gXbMwjGlkea12KvEegQ/view?usp=drive_link)**
+
+
+
+
 ---
 
 ## 📸 Screenshots
