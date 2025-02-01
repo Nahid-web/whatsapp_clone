@@ -22,7 +22,7 @@ void main() async {
 }
 
 class MyApp extends ConsumerWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,7 +32,7 @@ class MyApp extends ConsumerWidget {
       onGenerateRoute: (settings) => generateRoute(settings),
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: appBarColor,
         ),
       ),

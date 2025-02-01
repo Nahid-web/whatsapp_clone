@@ -7,7 +7,7 @@ import 'package:whatsapp_clone/widgets/web_profile_bar.dart';
 import 'package:whatsapp_clone/widgets/web_search_bar.dart';
 
 class WebLayoutScreen extends StatelessWidget {
-  const WebLayoutScreen({Key? key}) : super(key: key);
+  const WebLayoutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,10 @@ class WebLayoutScreen extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
+          const Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: const [
+                children: [
                   WebProfileBar(),
                   WebSearchBar(),
                   ContactsList(),
